@@ -3,13 +3,22 @@
 
 // Declaracion de bucle for
 for ($i = 0; $i<10; $i+=1){
-    echo $i;
+    // code
 }
 
-// Declaracion bucle foreach
 
-$colores = array('rojo', 'azul' , 'verde');
+ // Interrumpir iteraciones del bucle: break;
+ for ($i = 0; $i<10; $i+=1){
+    if($i == 5){
+        // Interrumpir bucle si $i es iaugal a 5
+        break;
+    }
+}
 
-foreach($colores as $color){
-    echo $color;
+// Saltar una interacion del bucle: continue;
+for ($i = 0; $i<10; $i+=1){
+    if($i == 5){
+        // Saltar una interaccion si $i es iaugal a 5
+        continue;
+    }
 }
