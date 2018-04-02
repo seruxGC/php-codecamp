@@ -3,8 +3,8 @@
 class PersonaBase
 {
     public $nombre;
-    protected $apellido;
-    protected $correo;
+    private $apellido;
+    private $correo;
 
     public function __construct(string $nombre, string $apellido, string $correo)
     {
