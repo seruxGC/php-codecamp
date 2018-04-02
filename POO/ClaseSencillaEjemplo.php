@@ -9,7 +9,7 @@ class Coche
 
     /** Constantes de clase (son siempre estaticas)
      * Es posible definir valores constantes en función de cada clase manteniéndola invariable. La visibilidad predeterminada de las constantes de clase es public.*/
-    const NUMERO_RUEDAS = 4;
+    const NUMERO_RUEDAS = 4; // En mayuscula por convencion
 
     /** Constructor
      * Aquellas clases que tengan un método constructor lo
