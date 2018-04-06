@@ -20,7 +20,7 @@
  /**
  * Definición de MyClass
  */
-class MyClass
+class MyClassX
 {
     public $public = 'Public';
     protected $protected = 'Protected';
@@ -34,7 +34,7 @@ class MyClass
     }
 }
 
-$obj = new MyClass();
+$obj = new MyClassX();
 echo $obj->public;    // Funciona bien
 echo $obj->protected; // Error Fatal
 echo $obj->private;   // Error Fatal
