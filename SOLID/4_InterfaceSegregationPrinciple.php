@@ -1,6 +1,9 @@
 I-Segregacion del interface (Interface segregation) - ISP
 
- Cuando se definen interfaces estos deben ser específicos a una finalidad concreta. Por ello, si tenemos que definir una serie de métodos abstractos que debe utilizar una clase a través de interfaces, es preferible tener muchos interfaces que definan pocos métodos que tener un interface con muchos métodos.
+ Cuando se definen interfaces estos deben ser específicos a una finalidad concreta.
+  Por ello, si tenemos que definir una serie de métodos abstractos que debe utilizar 
+  una clase a través de interfaces, es preferible tener muchos interfaces que definan
+   pocos métodos que tener un interface con muchos métodos.
 
 El objetivo de este principio es principalmente poder reaprovechar los interfaces en otras clases.
 
