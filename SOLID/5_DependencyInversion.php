@@ -1,6 +1,3 @@
-https://www.genbetadev.com/paradigmas-de-programacion/solid-cinco-principios-basicos-de-diseno-de-clases
-https://es.wikipedia.org/wiki/SOLID
-
 D-Inversión de dependencias (Dependency inversion) - DIP
 
  El objetivo de este principio conseguir desacoplar las clases.
