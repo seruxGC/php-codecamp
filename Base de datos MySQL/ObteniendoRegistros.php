@@ -1,13 +1,13 @@
 <?php
 
-$conn = new mysqli('localhost', 'root', 'Carlos.12', 'pruebas');
+$conexion = new mysqli('localhost', 'root', 'Carlos.12', 'pruebas');
 
-if ($conn->connect_error) {
-    die('Error de conexion: ' . $conn->connect_error);
+if ($conexion->connect_error) {
+    die('Error de conexion: ' . $conexion->connect_error);
 }
 
 $consulta = 'SELECT * FROM datos_personales';
-$resulset = $conn->query($consulta);
+$resulset = $conexion->query($consulta);
 
 while($row = $resulset->fetch_object()){
     echo 'Nombre: ' . $row->NOMBRE . '<br>';
@@ -16,4 +16,4 @@ while($row = $resulset->fetch_object()){
     echo 'Direccion: ' . $row->DIRECCION . '<br><br>';
 }
 $resulset->free();
-$conn->close();
+$conexion->close();
