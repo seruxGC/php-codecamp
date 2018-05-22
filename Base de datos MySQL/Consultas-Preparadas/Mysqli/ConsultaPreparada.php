@@ -53,7 +53,6 @@ $stmt->close();
 
 
 
-
 /**
  * Obtencion de resutlados en una sentencia SELECT
  */
@@ -67,11 +66,7 @@ $row = $resulset->fetch_object();
 
 echo "Datos obtenidos: $row->NIF  $row->NOMBRE $row->APELLIDO $row->EDAD $row->DIRECCION";
 
-
-
-
-
-
+$stmt2->close();
 $conexion->close();
 
 
