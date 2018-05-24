@@ -20,19 +20,19 @@ try {
     $edad = 26;
     $direccion = 'MSI';
 
-    $stmt->bindParam(':nif', $nif, $conexion::PARAM_STR);
-    $stmt->bindParam(':nombre', $nombre, $conexion::PARAM_STR);
-    $stmt->bindParam(':apellido', $apellido, $conexion::PARAM_STR);
-    $stmt->bindParam(':edad', $edad, $conexion::PARAM_INT);
-    $stmt->bindParam(':direccion', $direccion, $conexion::PARAM_STR);
-
     // Ejecución de la sentencia preparada
-    $stmt->execute();
+    $stmt->execute(
+        array(
+            ':nif' => $nif,
+            ':nombre' => $nombre,
+            ':apellido' => $apellido,
+            ':edad' => $edad,
+            ':direccion' => $direccion
+    ));
 
     // Liberar sentencia y Cerrar conexion
     $stmt = null;
     $conexion = null;
-    
 } catch (PDOException $e) {
     die('Error en la conecion ' . $e->getMessage());
 }
@@ -54,7 +54,17 @@ $stmt2 = null;
 $conexion2 = null;
 
 
-//   Asociacion de parametros alternativa
+//   Asociacion de parametros alternativas
+//   
+//   ALTERNATIVA 1
+//   
+//     $stmt = $conexion->prepare('INSERT INTO datos_personales (NIF,NOMBRE,APELLIDO,EDAD,DIRECCION) '
+//        . 'VALUES(?,?,?,?,?)');
+//        
+//     $stmt->execute(array($nif, $nombre, $apelido, $edad, $direccion));
+//   
+//   
+//   ALTERNATIVA 2
 //   
 //     $stmt = $conexion->prepare('INSERT INTO datos_personales (NIF,NOMBRE,APELLIDO,EDAD,DIRECCION) '
 //        . 'VALUES(?,?,?,?,?)');
@@ -64,4 +74,22 @@ $conexion2 = null;
 //    $stmt->bindParam(3, $apellido, $conexion::PARAM_STR);
 //    $stmt->bindParam(4, $edad, $conexion::PARAM_INT);
 //    $stmt->bindParam(5, $direccion, $conexion::PARAM_STR);
+//    
+//    $stmt->execute();
+//
+//   ALTERNATIVA 3
+// 
+//     $stmt = $conexion->prepare('INSERT INTO datos_personales (NIF,NOMBRE,APELLIDO,EDAD,DIRECCION) '
+//        . 'VALUES(:nif, :nombre, :apellido, :edad, :direccion)');
+//        
+//    $stmt->bindParam(':nif', $nif, $conexion::PARAM_STR);
+//    $stmt->bindParam(':nombre', $nombre, $conexion::PARAM_STR);
+//    $stmt->bindParam(':apellido', $apellido, $conexion::PARAM_STR);
+//    $stmt->bindParam(':edad', $edad, $conexion::PARAM_INT);
+//    $stmt->bindParam(':direccion', $direccion, $conexion::PARAM_STR);
+//    
+//    $stmt->execute();
+
+
+
 
