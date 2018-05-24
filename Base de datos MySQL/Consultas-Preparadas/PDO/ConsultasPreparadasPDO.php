@@ -8,6 +8,12 @@
  */
 try {
     $conexion = new PDO('mysql:host=localhost;dbname=pruebas;charset=UTF8', 'root', 'Carlos.12');
+    
+    // Recomendado para evitar inyeccion de sql
+    $conexion->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+    
+    // Recomendado para obtener todos los errores en el cath
+    $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Preparacion de sentencia
     $stmt = $conexion->prepare('INSERT INTO datos_personales (NIF,NOMBRE,APELLIDO,EDAD,DIRECCION) '
