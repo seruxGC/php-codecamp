@@ -1,8 +1,7 @@
 <?php
-
 $conexion = new mysqli('localhost', 'root', 'Carlos.12', 'Pruebas');
 
-if($conexion->errno){
+if ($conexion->errno) {
     die('Error al conectarse ' . $conexion->error);
 }
 
@@ -56,17 +55,37 @@ $stmt->close();
 /**
  * Obtencion de resutlados en una sentencia SELECT
  */
-$stmt2 = $conexion->prepare('SELECT * FROM datos_personales WHERE NIF = ?');
+$stmt2 = $conexion->prepare('SELECT * FROM datos_personales WHERE NIF = ? OR NIF IN(0000,0001)');
 $stmt2->bind_param('s', $nif);
+
 $stmt2->execute();
 
 $resulset = $stmt2->get_result();
 
-$row = $resulset->fetch_object();
-
-echo "Datos obtenidos: $row->NIF  $row->NOMBRE $row->APELLIDO $row->EDAD $row->DIRECCION";
+while ($row = $resulset->fetch_object()) {
+    echo "Datos obtenidos METODO 1: $row->NIF  $row->NOMBRE $row->APELLIDO $row->EDAD $row->DIRECCION <br>";
+}
 
 $stmt2->close();
+
+/**
+ * Obtencion de resutlados en una sentencia SELECT alternativa
+ */
+$stmt3 = $conexion->prepare('SELECT NOMBRE, EDAD FROM datos_personales WHERE NIF = ? OR NIF IN(0000,0001)');
+$stmt3->bind_param('s', $nif);
+
+$stmt3->execute();
+
+$stmt3->store_result();
+$stmt3->bind_result($nombre, $edad);
+
+while ($stmt3->fetch()) {
+    echo "Datos obtenidos METODO 2: $nombre $edad <br>";
+}
+
+$stmt3->close();
+
+
 $conexion->close();
 
 
