@@ -1,0 +1,16 @@
+{
+    "name": "vendor/names",
+    "description": "Description of project names.",
+    "authors": [
+        {
+            "name": "Serux",
+            "email": "your@email.here"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Names\\": "src"
+        }
+    }
+}
