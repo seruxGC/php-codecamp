@@ -7,7 +7,7 @@
  * incluyendo el nombre de usuario y la contraseña
  */
 try {
-    $conexion = new PDO('mysql:host=localhost;dbname=pruebas;charset=UTF8', 'root', 'Carlos.12');
+    $conexion = new PDO('mysql:host=localhost;dbname=pruebas;charset=UTF8', 'root', 'test');
     
     // Recomendado para evitar inyeccion de sql
     $conexion->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);

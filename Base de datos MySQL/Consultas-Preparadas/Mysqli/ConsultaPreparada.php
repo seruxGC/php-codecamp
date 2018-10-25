@@ -1,5 +1,5 @@
 <?php
-$conexion = new mysqli('localhost', 'root', 'Carlos.12', 'Pruebas');
+$conexion = new mysqli('localhost', 'root', 'test', 'Pruebas');
 
 if ($conexion->errno) {
     die('Error al conectarse ' . $conexion->error);
